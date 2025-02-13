@@ -1,0 +1,98 @@
+body {
+    display: flex;
+    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+    color: #b22222;
+    padding: 20px;
+}
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    position: relative;
+}
+h1 {
+    color: #ff4d6d;
+}
+@keyframes sparkle {
+    0% { opacity: 0; transform: scale(0.5) translateY(0); }
+    50% { opacity: 1; transform: scale(1) translateY(-5px); }
+    100% { opacity: 0; transform: scale(0.5) translateY(0); }
+}
+
+.bubble {
+    background: #ffccd5;
+    padding: 40px;
+    border-radius: 20px;
+    margin: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    font-size: 25px;
+    position: relative; /* Needed for absolute positioning of sparkles */
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Sparkles */
+.bubble::before,
+.bubble::after {
+    content: "✨";
+    position: absolute;
+    font-size: 18px;
+    color: #ff9a9e; /* Light pink sparkles */
+    animation: sparkle 1.5s infinite;
+}
+
+/* Positioning the sparkles randomly */
+.bubble::before {
+    top: -10px;
+    left: 10px;
+    animation-delay: 0s;
+}
+
+.bubble::after {
+    bottom: -10px;
+    right: 10px;
+    animation-delay: 0.5s;
+}
+
+.hidden {
+    display: none;
+}
+.next-button {
+    text-decoration: none;
+    font-size: 50px; /* Adjust size */
+    position: relative;
+    color: #ff4d79; /* Pinkish heart color */
+    transition: color 0.3s ease-in-out;
+}
+
+.next-button::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -5px; /* Distance from the heart */
+    width: 0;
+    height: 3px;
+    background: #ff4d79; /* Match heart color */
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.next-button:hover {
+    color: #ff1a4d; /* Darker pink on hover */
+}
+
+.next-button:hover::after {
+    width: 100%;
+    left: 0;
+}
+.heart {
+    font-size: 100px;
+    cursor: pointer;
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
